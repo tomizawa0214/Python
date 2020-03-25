@@ -1,20 +1,14 @@
 # coding:utf-8
 
-class MyException(Exception):
-    pass
+scores = [40, 50]
+##print(scores[0])
+##scores[0] = 45
+##print(len(scores))
+##scores.append(100)
+##print(scores)
 
-def div(a, b):
-    try:
-        if (b < 0):
-            raise MyException("not minus")
-        print(a / b)
-    except ZeroDivisionError:
-        print("not by zero!")
-    except MyException as e:
-        print(e)
-    else:
-        print("no exception!")
-    finally:
-        print("--end--")
+for score in scores:
+    print(score)
 
-div(10, -3)
+for i, score in enumerate(scores):
+    print("{0}: {1}" .format(i, score))
