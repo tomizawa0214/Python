@@ -1,19 +1,20 @@
 # coding:utf-8
 
-class A:
-    def say_a(self):
-        print("A!")
-    def say_hi(self):
-        print("hi! from A!")
-class B:
-    def say_b(self):
-        print("B!")
-    def say_hi(self):
-        print("hi! from B!")
-
-class C(B, A):
+class MyException(Exception):
     pass
 
-c = C()
-c.say_hi()
+def div(a, b):
+    try:
+        if (b < 0):
+            raise MyException("not minus")
+        print(a / b)
+    except ZeroDivisionError:
+        print("not by zero!")
+    except MyException as e:
+        print(e)
+    else:
+        print("no exception!")
+    finally:
+        print("--end--")
 
+div(10, -3)
