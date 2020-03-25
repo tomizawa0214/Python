@@ -1,22 +1,19 @@
 # coding:utf-8
 
-class User:
-    def __init__(self, name):
-        self.name = name
+class A:
+    def say_a(self):
+        print("A!")
     def say_hi(self):
-        print("hi {0}".format(self.name))
-
-class AdminUser(User):
-    def __init__(self, name, age):
-        super().__init__(name)
-        self.age = age
-    def say_hello(self):
-        print("hello {0} ({1})".format(self.name, self.age))
+        print("hi! from A!")
+class B:
+    def say_b(self):
+        print("B!")
     def say_hi(self):
-        print("[admin] hi {0}".format(self.name))
+        print("hi! from B!")
 
-bob = AdminUser("bob", 23)
-print(bob.name)
-bob.say_hi()
-bob.say_hello()
+class C(B, A):
+    pass
+
+c = C()
+c.say_hi()
 
