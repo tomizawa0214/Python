@@ -1,14 +1,8 @@
 # coding:utf-8
 
-scores = [40, 50]
-##print(scores[0])
-##scores[0] = 45
-##print(len(scores))
-##scores.append(100)
-##print(scores)
+##items = (50, "apple", 32.5)
+##print(items[1])
+##items[1] = "pen"
 
-for score in scores:
-    print(score)
-
-for i, score in enumerate(scores):
-    print("{0}: {1}" .format(i, score))
+print(list((1, 3, 5)))
+print(tuple([1, 3, 5]))
