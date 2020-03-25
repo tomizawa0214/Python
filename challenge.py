@@ -6,9 +6,13 @@ class User:
         User.count += 1 
         self.name = name
 
-print(User.count)
+    def say_hi(self):
+        print("hi {0}".format(self.name))
+    @classmethod
+    def show_info(cls):
+        print("{0} instances" .format(cls.count))
+
 tom = User("tom")
 bob = User("bob")
-print(User.count)
 
-print(tom.count)
+User.show_info()
