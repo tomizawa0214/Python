@@ -1,12 +1,15 @@
 # coding:utf-8
 
+class User:
+    pass
 
-msg = "hello"
+tom = User()
+tom.name = "tom"
+tom.score = 20
 
-def say_hi():
-    global msg
-    msg = "hello global"
-    print(msg)
-    
-say_hi()
-print(msg)
+bob = User()
+bob.name = "bob"
+bob.level = 5
+
+print(tom.name)
+print(bob.level)
