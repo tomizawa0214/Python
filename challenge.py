@@ -1,8 +1,10 @@
 # coding:utf-8
 
-##items = (50, "apple", 32.5)
-##print(items[1])
-##items[1] = "pen"
+scores = [40, 50, 70, 90, 60]
+print(scores[1:4])
+print(scores[:2])
+print(scores[3:])
+print(scores[-3:])
 
-print(list((1, 3, 5)))
-print(tuple([1, 3, 5]))
+s = "hello"
+print(s[1:4])
