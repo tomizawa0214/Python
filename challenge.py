@@ -1,10 +1,16 @@
 # coding:utf-8
 
-scores = [40, 50, 70, 90, 60]
-print(scores[1:4])
-print(scores[:2])
-print(scores[3:])
-print(scores[-3:])
+##a = set([5, 4, 8, 5])
+##a = {5, 3, 8, 5}
+##print(a)
+##print(5 in a)
+##a.add(2)
+##a.remove(3)
+##print(a)
+##print(len(a))
 
-s = "hello"
-print(s[1:4])
+a = {1, 3, 5, 8}
+b = {3, 5, 8, 9}
+print(a | b)
+print(a & b)
+print(a - b)
