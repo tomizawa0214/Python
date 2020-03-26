@@ -1,16 +1,11 @@
 # coding:utf-8
 
-##a = set([5, 4, 8, 5])
-##a = {5, 3, 8, 5}
-##print(a)
-##print(5 in a)
-##a.add(2)
-##a.remove(3)
-##print(a)
-##print(len(a))
+sales = {"taguchi": 200, "fkoji": 400}
+print(sales["taguchi"])
+sales["taguchi"] = 300
+sales["dotinstall"] = 500
+del(sales["fkoji"])
+print(sales)
 
-a = {1, 3, 5, 8}
-b = {3, 5, 8, 9}
-print(a | b)
-print(a & b)
-print(a - b)
+for key, value in sales.items():
+    print("{0}: {1}".format(key, value))
