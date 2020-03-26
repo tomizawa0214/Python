@@ -1,8 +1,8 @@
 # coding:utf-8
 
-##def is_even(n):
-##    return n % 2 == 0
+##print([i for i in range(10)])
+##print([i * 3 for i in range(10)])
+##print([i * 3 for i in range(10) if i % 2 == 0])
 
-##print(list(filter(is_even, range(10))))
-
-print(list(filter(lambda n: n % 2 ==0, range(10))))
+print(i * 3 for i in range(10) if i % 2 == 0)
+print({i * 3 for i in range(10) if i % 2 == 0})
