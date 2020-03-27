@@ -33,7 +33,15 @@
 # result = int_value * 2
 # print(result)
 
-user_input = input('input some number:')
-int_value = int(user_input)
-result = str(int_value) + '*2=' + str(int_value*2)
-print(result)
+# user_input = input('input some number:')
+# int_value = int(user_input)
+# result = str(int_value) + '*2=' + str(int_value*2)
+# print(result)
+
+sample_str = 'find,rfind,index,rindex'
+print(sample_str.find('index'))
+print(sample_str.rfind('index'))
+print(sample_str.find('foo'))
+print(sample_str.index('find'))
+print(sample_str.rindex('find'))
+print(sample_str.index('foo'))
