@@ -57,16 +57,30 @@
 # else:
 #     print('見つかりませんでした')
 
-names = ['一色', 'かわさき', 'かわさきしんじ', '遠藤']
-target = 'かわさき'
-found = False
+# names = ['一色', 'かわさき', 'かわさきしんじ', '遠藤']
+# target = 'かわさき'
+# found = False
 
-for name in names:
-    if target in name:
-        found = True
-        print(f'発見: {name}')
-        continue
-    print('繰り返し処理を継続します')
+# for name in names:
+#     if target in name:
+#         found = True
+#         print(f'発見: {name}')
+#         continue
+#     print('繰り返し処理を継続します')
     
-    if not found:
-        print('見つかりませんでした')
+#     if not found:
+#         print('見つかりませんでした')
+
+# def hello(whom):
+#     message = 'Hello' + str(whom)
+#     print(message)
+
+# hello(' World')
+
+# def get_ans4ultimateQ():
+    # return 42
+    # print('can not reach this line')
+
+# result = get_ans4ultimateQ()
+# print(get_ans4ultimateQ())
+# print(result)
