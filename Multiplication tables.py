@@ -1,14 +1,14 @@
-# result = []
-# for num1 in range(1, 10):
-#     tmp = []
-#     for num2 in range(1, 10):
-#         tmp.append(f'{num1*num2:2}')
-#     result.append(tmp)
+result = []
+for num1 in range(1, 10):
+    tmp = []
+    for num2 in range(1, 10):
+        tmp.append(f'{num1*num2:2}')
+    result.append(tmp)
 
-# for row in result:
-#     print(','.join(row))
+for row in result:
+    print(','.join(row))
 
-# result = [[f'{num1*num2:2}' for num2 in range(1, 10)] for num1 in range(1, 10)]
+result = [[f'{num1*num2:2}' for num2 in range(1, 10)] for num1 in range(1, 10)]
 
 # for count, row in zip(range(1, 10), result):
 #     print(','.join(row))
@@ -38,10 +38,10 @@
 # result = str(int_value) + '*2=' + str(int_value*2)
 # print(result)
 
-sample_str = 'find,rfind,index,rindex'
-print(sample_str.find('index'))
-print(sample_str.rfind('index'))
-print(sample_str.find('foo'))
-print(sample_str.index('find'))
-print(sample_str.rindex('find'))
-print(sample_str.index('foo'))
+# sample_str = 'find,rfind,index,rindex'
+# print(sample_str.find('index'))
+# print(sample_str.rfind('index'))
+# print(sample_str.find('foo'))
+# print(sample_str.index('find'))
+# print(sample_str.rindex('find'))
+# print(sample_str.index('foo'))
