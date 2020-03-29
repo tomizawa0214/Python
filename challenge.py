@@ -240,15 +240,23 @@
 # print(intlist2)
 # print(intlist3)
 
-intlist1 = [[1, 2], [3, 4], [5, 6]]
-intlist2 = intlist1.copy()
+# intlist1 = [[1, 2], [3, 4], [5, 6]]
+# intlist2 = intlist1.copy()
 
-print(intlist1)
-print(intlist2)
+# print(intlist1)
+# print(intlist2)
 
-print(id(intlist1))
-print(id(intlist2))
+# print(id(intlist1))
+# print(id(intlist2))
 
-intlist1[0][0] = 101
-print(intlist1)
-print(intlist2)
+# intlist1[0][0] = 101
+# print(intlist1)
+# print(intlist2)
+
+languages = ['Python', 'Ruby', 'PHP']
+print(languages)
+
+for index, language in enumerate(languages):
+    languages[index] = f'{index}: {language}'
+
+print(languages)
