@@ -253,10 +253,79 @@
 # print(intlist1)
 # print(intlist2)
 
-languages = ['Python', 'Ruby', 'PHP']
-print(languages)
+# languages = ['Python', 'Ruby', 'PHP']
+# print(languages)
 
-for index, language in enumerate(languages):
-    languages[index] = f'{index}: {language}'
+# for index, language in enumerate(languages):
+#     languages[index] = f'{index}: {language}'
 
-print(languages)
+# print(languages)
+
+# mydict = dict()
+# print(mydict)
+# mydict = dict(foo = 'foo', bar = 'bar')
+# print(mydict)
+# mydict = dict({'foo': 'FOO', 'bar': 'BAR'})
+# print(mydict)
+# mydict = dict([('foo', 1), ['bar',2]])
+# print(mydict)
+# mydict = dict({'foo': 'FOO', 'bar': 'BAR'}, baz = 'baz')
+# print(mydict)
+
+# urls = ['https://someurl1', 'https://someurl2', 'https://someurls3']
+# pvs = [12345, 123456, 1234567]
+# authors = ['kawasaki', 'isshiki', 'endo']
+
+# pv_data = {u: {'pv': p, 'author': a} for u, p, a in zip(urls, pvs, authors)}
+# for key, value in pv_data.items():
+#     print(key, value['pv'], value['author'])
+
+# sk = {'first_name': 'shinji', 'family_name': 'kawasaki', 'weight': 80}
+# print(sk.get('first_name'))
+# print(sk.get('age'))
+# print(sk.get('age', 'NOT FOUND'))
+
+# sk['family_name'] = 'okazaki'
+# print(sk)
+
+# sk['age'] = 150
+# print(sk)
+
+# mydict = {'foo': 'FOO', 'bar': 'BAR', 'baz': 'BAZ'}
+# print(mydict)
+# mydict.update(foo='fooo', somekey='somevalue')
+# print(mydict)
+# mydict.update({'bar': 'new BAR'})
+# print(mydict)
+# mydict.update([('baz', 'new Baz'), ['x', 1]])
+# print(mydict)
+# mydict.update([('y', 2)], z=3)
+# print(mydict)
+
+# mydict = {'foo': 'foo', 'bar': 'bar', 'baz': 'baz'}
+# print(mydict)
+# result = mydict.pop('bar')
+# print(result)
+# print(mydict)
+# result = mydict.pop('bar', 'not found')
+# print(result)
+# result = mydict.pop('bar')
+
+# import sys
+# print(sys.version)
+
+# sk = {'first_name': 'shinji', 'family_name': 'kawasaki', 'weight': 80}
+# for item in sk:
+#     print(item, sk[item])
+
+# sk = {'first_name': 'shinji', 'family_name': 'kawasaki', 'weight': 80}
+# for key, value in sk.items():
+#     print(key, value)
+
+sk = {'first_name': 'shinji', 'family_name': 'kawasaki', 'weight': 80}
+print('kawasaki' in sk)
+print('kawasaki' in sk.values())
+
+sk = {'first_name': 'shinji', 'family_name': 'kawasaki', 'weight': 80}
+for key, value in sk.items():
+    print(key, value)
