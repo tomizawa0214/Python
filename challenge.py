@@ -137,10 +137,38 @@
 
 # print(myfunc(param4='param2', param1=1, fool='foo'))
 
-def myfunc(param1, **kwargs):
-    tmp = f'param1: {param1}'
-    for item in kwargs.items():
-        tmp += f', {item[0]}: {item[1]}'
-    return tmp
+# def myfunc(param1, **kwargs):
+#     tmp = f'param1: {param1}'
+#     for item in kwargs.items():
+#         tmp += f', {item[0]}: {item[1]}'
+#     return tmp
 
-print(myfunc(param2='param2', param1=1, foo='foo'))
+# print(myfunc(param2='param2', param1=1, foo='foo'))
+
+# languages = ['Python', 'Ruby', 'PHP']
+# languages.append('Perl')
+# languages = languages + ['C#', 99]
+
+# print(languages)
+
+# somelist = [0, 1, 2]
+# print(id(somelist))
+# somelist = somelist + [3, 4]
+# print(id(somelist))
+# somelist += [5, 6]
+# print(id(somelist))
+
+# intlist = []
+# for num in range(10):
+#     intlist.append(num)
+
+# print(intlist)
+
+# intlist = [num for num in range(10)]
+# print(intlist)
+
+# print([num*2 for num in range(10)])
+# print([num*num for num in range(10) if num % 2 == 0])
+
+for row in [[x*y for y in range(1, 10)] for x in range(1, 10)]:
+    print(row)
