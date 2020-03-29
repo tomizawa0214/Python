@@ -170,5 +170,85 @@
 # print([num*2 for num in range(10)])
 # print([num*num for num in range(10) if num % 2 == 0])
 
-for row in [[x*y for y in range(1, 10)] for x in range(1, 10)]:
-    print(row)
+# for row in [[x*y for y in range(1, 10)] for x in range(1, 10)]:
+#     print(row)
+
+# intlist = list(range(5))
+# print(len(intlist))
+
+# intlist = [7, 0, -9, 3, 2, -1, -3, 1, -5, 4]
+# print(max(intlist))
+# print(min(intlist))
+
+# intlist = [7, 0, -9, 3, 2, -1, -3, 1, -5, 4]
+# print('max(abs):', max(intlist, key=abs))
+# print('min(abs):', min(intlist, key=lambda x:-x if x < 0 else x))
+# print('min(abs):', min(intlist, key=abs))
+# print(max([], default='no item'))
+
+# intlist = [0, 10, 9, 2, -7, -10, -2, -9, -7, 3]
+# print(intlist.index(-7))
+# print(intlist.index(-7, 5))
+# print(intlist.index(3, 0, 9))
+
+# intlist = [0, 10, 9, 2, -7, -10, -2, -9, -7, 3]
+# idx = -1
+# count = intlist.count(-7)
+# for num in range(count):
+#     idx = intlist.index(-7, idx + 1)
+#     print(f'{idx}: {intlist[idx]}')
+
+# intlist = [-6, 4, 1, 0, -2, 4, 3, 6]
+# intlist.remove(4)
+# print(intlist)
+# intlist.remove(True)
+# print(intlist)
+# intlist.remove(100)
+
+# intlist = list(range(5))
+
+# while intlist:
+#     print(intlist.pop())
+
+# intlist = [-6, 4, 1, 0]
+# print(intlist.pop(1))
+
+# intlist = list(range(10))
+# print(intlist)
+# print(id(intlist))
+# intlist.clear()
+# print(intlist)
+# print(id(intlist))
+# intlist.append(5)
+# # intlist = []
+# print(intlist)
+
+# intlist = [6, 8, -2, -10, -3, 2, 5, 6, -9, 8]
+
+# result = sorted(intlist, key=abs)
+# print(intlist)
+# print(result)
+
+# intlist1 = list(range(5))
+# print(intlist1)
+
+# intlist1.reverse()
+# print(intlist1)
+
+# intlist2 = list(range(7))
+# intlist3 = list(reversed(intlist2))
+# print(intlist2)
+# print(intlist3)
+
+intlist1 = [[1, 2], [3, 4], [5, 6]]
+intlist2 = intlist1.copy()
+
+print(intlist1)
+print(intlist2)
+
+print(id(intlist1))
+print(id(intlist2))
+
+intlist1[0][0] = 101
+print(intlist1)
+print(intlist2)
