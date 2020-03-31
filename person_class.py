@@ -1,11 +1,11 @@
 class Person(object):
-  def __init__(self, name, age):
-    self.name = name
-    self.age = age
-  def hello(self):
-    print('Hello,', str(self.name))
-  def get_age(self):
-    return self.age
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def hello(self):
+        print('Hello,', str(self.name))
+    def get_age(self):
+        return self.age
 
 kawasaki = Person('kawasaki', 250)
 isshiki = Person('isshiki', 19)
@@ -41,14 +41,14 @@ isshiki = Person('isshiki', 19)
 # print(isshiki.get_school())
 
 class Student(Person):
-  def __init__(self, name, age, school):
-    super().__init__(name, age)
-    self.school = school
-  def get_school(self):
-    return self.school
-  def hello(self):
-    super().hello()
-    print('You are a student of', self.school)
+    def __init__(self, name, age, school):
+        super().__init__(name, age)
+        self.school = school
+    def get_school(self):
+        return self.school
+    def hello(self):
+        super().hello()
+        print('You are a student of', self.school)
 
 # isshiki = Student('isshiki', 18, 'Imperial univ')
 # isshiki.hello()
