@@ -84,54 +84,55 @@ class App(tk.Frame):
             height = float(self.ent1.get())
             weight = float(self.ent2.get())
             # BMIを計算
-            bmi = round(weight / ((height / 100) * (height / 100)), 2)
+            bmi = round(weight / ((height / 100) * (height / 100)), 1)
             # 適正体重を計算
-            right_weight = round(((height / 100) * (height / 100)) * 22, 2)
+            right_weight = round(((height / 100) * (height / 100)) * 22, 1)
 
             # if文で分岐
             if bmi < 18.5:
-                result = "低体重"
+                result = "痩せすぎだよ"
                 # PhotoImageのオブジェクトのfileを変えて
                 self.img["file"] = "BMI/img/thin.png"
                 # self.lab7のimageを変える
                 self.lab7["image"] = self.img
 
             elif 18.5 <= bmi < 25:
-                result = "普通体重"
+                result = "標準体型ですね！"
                 self.img["file"] = "BMI/img/normal.png"
                 self.lab7["image"] = self.img
 
             elif 25 <= bmi < 30:
-                result = "肥満（1度)"
+                result = "ちょっと肥満よ"
                 self.img["file"] = "BMI/img/obesity.png"
                 self.lab7["image"] = self.img
             
             elif 30 <= bmi < 35:
-                result = "肥満（2度）"
+                result = "肥満体型ね…"
                 self.img["file"] = "BMI/img/obesity.png"
                 self.lab7["image"] = self.img
 
             elif 35 <= bmi < 40:
-                result = "肥満（3度）"
+                result = "や、やばい…"
                 self.img["file"] = "BMI/img/obesity.png"
                 self.lab7["image"] = self.img
 
             elif 40 <= bmi:
-                result = "肥満（4度）高度肥満"
+                result = "もう才能？"
                 self.img["file"] = "BMI/img/obesity.png"
                 self.lab7["image"] = self.img
 
-            ans = f"あなたのBMIは{bmi}です。\n{result}です。\n適正体重は{right_weight}kgです。"
+            ans = f"あなたのBMIは{bmi}です。\n{result}\n適正体重は{right_weight}kgですね。"
 
             # self.var1に文字列をセット
             self.var1.set(ans)
 
         except ValueError:
             # エラーメッセージ
-            self.var1.set("ValueError\n半角の数字を入力してください\n")
+            self.var1.set("半角の数字を入力してください")
+            # self.var1.set("\033[31m" + "半角の数字を入力してください" + "\033[0m")
         except ZeroDivisionError:
             # エラーメッセージ
-            self.var1.set("ZeroDivisionError\n0で割れません\n")
+            self.var1.set("0で割れません")
 
     def clear(self):
         """リセットボタンが押されたら発動"""
