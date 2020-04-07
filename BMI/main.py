@@ -4,13 +4,15 @@ BMI ボディマス指数計算
 
 import tkinter as tk
 
+# import tkinter;print(tkinter.TkVersion)
+
 class App(tk.Frame):
     """tkinterのFrameクラスを継承して作成"""
 
     def __init__(self, master=None):
         """コンストラクタ"""
         # Frameクラスのコンストラクタを呼ぶ
-        super() .__init__(master, padx=10, pady=10)
+        super().__init__(master, padx=10, pady=10)
         # root (masterはrootを代入) にpackして配置
         # packはウィジェットを行または列に配置
         # この場合rootの真ん中にFrameウィジェットが配置された状態
@@ -30,7 +32,7 @@ class App(tk.Frame):
         self.lab2 = tk.Label(self, text="身長")
         self.lab2.grid(row=1, column=0)
 
-        # Entryウィジェットはテキスト入力 justify=RIGHTで右寄せにしている
+        # Entryウィジェットはテキスト入力 justify=tk.RIGHTで右寄せにしている
         self.ent1 = tk.Entry(self, justify=tk.RIGHT)
         self.ent1.grid(row=1, column=1, columnspan=2)
         # 最初にent1にフォーカスさせる
@@ -65,7 +67,7 @@ class App(tk.Frame):
         self.lab6.grid(row=4, column=0, columnspan=4)
 
         # PhotoImageのオブジェクトを作成
-        self.img = tk.PhotoImage(file="img/measurement.jpg")
+        self.img = tk.PhotoImage(file="BMI/img/measurement.png")
 
         # image=self.imgでPhotoImageのオブジェクトを表示させる
         self.lab7 = tk.Label(self, image=self.img)
@@ -90,33 +92,33 @@ class App(tk.Frame):
             if bmi < 18.5:
                 result = "低体重"
                 # PhotoImageのオブジェクトのfileを変えて
-                self.img["file"] = "img/thin.jpg"
+                self.img["file"] = "BMI/img/thin.png"
                 # self.lab7のimageを変える
                 self.lab7["image"] = self.img
 
             elif 18.5 <= bmi < 25:
                 result = "普通体重"
-                self.img["file"] = "img/normal.jpg"
+                self.img["file"] = "BMI/img/normal.png"
                 self.lab7["image"] = self.img
 
             elif 25 <= bmi < 30:
                 result = "肥満（1度)"
-                self.img["file"] = "img/obesity.jpg"
+                self.img["file"] = "BMI/img/obesity.png"
                 self.lab7["image"] = self.img
             
             elif 30 <= bmi < 35:
                 result = "肥満（2度）"
-                self.img["file"] = "img/obesity.jpg"
+                self.img["file"] = "BMI/img/obesity.png"
                 self.lab7["image"] = self.img
 
             elif 35 <= bmi < 40:
                 result = "肥満（3度）"
-                self.img["file"] = "img/obesity.jpg"
+                self.img["file"] = "BMI/img/obesity.png"
                 self.lab7["image"] = self.img
 
             elif 40 <= bmi:
                 result = "肥満（4度）高度肥満"
-                self.img["file"] = "img/obesity.jpg"
+                self.img["file"] = "BMI/img/obesity.png"
                 self.lab7["image"] = self.img
 
             ans = f"あなたのBMIは{bmi}です。\n{result}です。\n適正体重は{right_weight}kgです。"
@@ -133,7 +135,7 @@ class App(tk.Frame):
 
     def clear(self):
         """リセットボタンが押されたら発動"""
-        self.img["file"] = "img/measurement.jpg"
+        self.img["file"] = "BMI/img/measurement.png"
         self.lab7["image"] = self.img
         self.var1.set(self.initial)
         # Entryに書いている文字の最初[0]から最後まで消すという意味
@@ -144,7 +146,7 @@ class App(tk.Frame):
 # Tkクラスをインスタンス化
 root = tk.Tk()
 # ウィンドウのタイトル指定
-root.title("BMI")
+root.title("BMI計算アプリ")
 # すべてのウィジェットのフォント指定
 root.option_add("*Font", "メイリオ 12")
 # Appクラスをインスタンス化
