@@ -72,3 +72,77 @@ class App(Frame):
         bindの場合event引数も受けなければいけないが
         このメソッドでは使わないので_Noneにしている
         何が入力されるかわからないのでtry～exceptで例外処理"""
+        try:
+            # Entryの内容を取得
+            height = float(self.ent1.get())
+            weight = float(self.ent2.get())
+            # BMIを計算
+            bmi = round(weight / ((height / 100) * (height / 100)), 2)
+            # 適正体重を計算
+            right_weight = round(((height / 100) * (height / 100)) * 22, 2)
+
+            # if文で分岐
+            if bmi < 18.5:
+                result = "低体重"
+                # PhotoImageのオブジェクトのfileを変えて
+                self.img["file"] = "thin.jpg"
+                # self.lab7のimageを変える
+                self.lab7["image"] = self.img
+
+            elif 18.5 <= bmi < 25:
+                result = "普通体重"
+                self.img["file"] = "normal.jpg"
+                self.lab7["image"] = self.img
+
+            elif 25 <= bmi < 30:
+                result = "肥満（1度)"
+                self.img["file"] = "obesity.jpg"
+                self.lab7["image"] = self.img
+            
+            elif 30 <= bmi < 35:
+                result = "肥満（2度）"
+                self.img["file"] = "obesity.jpg"
+                self.lab7["image"] = self.img
+
+            elif 35 <= bmi < 40:
+                result = "肥満（3度）"
+                self.img["file"] = "obesity.jpg"
+                self.lab7["image"] = self.img
+
+            elif 40 <= bmi:
+                result = "肥満（4度）高度肥満"
+                self.img["file"] = "obesity.jpg"
+                self.lab7["image"] = self.img
+
+            ans = f"あなたのBMIは{bmi}です。\n{result}です。\n適正体重は{right_weight}kgです。"
+
+            # self.var1に文字列をセット
+            self.var1.set(ans)
+
+        except ValueError:
+            # エラーメッセージ
+            self.var1.set("ValueError\n半角の数字を入力してください\n")
+        except ZeroDivisionError:
+            # エラーメッセージ
+            self.var1.set("ZeroDivisionError\n0で割れません\n")
+
+    def clear(self):
+        """リセットボタンが押されたら発動"""
+        self.img["file"] = "measurement.jpg"
+        self.lab7["image"] = self.img
+        self.var1.set(self.initial)
+        # Entryに書いている文字の最初[0]から最後まで消すという意味
+        self.ent1.delete(0, END)
+        self.ent2.delete(0, END)
+        self.ent1.focus()
+
+# Tkクラスをインスタンス化
+root = Tk()
+# ウィンドウのタイトル固定
+root.title("BMI")
+# すべてのウィジェットのフォント指定
+root.option_add("*Font", "メイリオ 12")
+# Appクラスをインスタンス化
+app = App(master=root)
+# mainloopメソッドでメインループを呼び出しイベントを待つ
+root.mainloop()
