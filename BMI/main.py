@@ -22,8 +22,10 @@ class App(tk.Frame):
         self.initial = "身長と体重を入力して\nボタンを押してください\n"
         # self.lab6で使う文字列変数を設定
         self.var1 = tk.StringVar()
+        # self.var2 = tk.StringVar()
         # 最初はself.initialを代入
         self.var1.set(self.initial)
+        # self.var2.set(self.initial)
 
         # 以降、Frameにウィジェットをgridで配置
         self.lab1 = tk.Label(self, text="BMI ボディマス指数計算")
@@ -63,8 +65,11 @@ class App(tk.Frame):
         self.btn2.grid(row=3, column=2)
 
         # textvariableでself.var1が変わればLabelのテキストも変わる
-        self.lab6 = tk.Label(self, textvariable=self.var1)
+        self.lab6 = tk.Label(self, textvariable=self.var1, fg="black")
+        # self.lab6 = tk.Label(self, textvariable=self.var1, fg="red")
         self.lab6.grid(row=4, column=0, columnspan=4)
+        # self.lab9 = tk.Label(self, textvariable=self.var2, fg="red")
+        # self.lab9.grid(row=4, column=0, columnspan=4)
 
         # PhotoImageのオブジェクトを作成
         self.img = tk.PhotoImage(file="BMI/img/measurement.png")
@@ -102,7 +107,7 @@ class App(tk.Frame):
                 self.lab7["image"] = self.img
 
             elif 25 <= bmi < 30:
-                result = "ちょっと肥満よ"
+                result = "ちょっと肥満"
                 self.img["file"] = "BMI/img/obesity.png"
                 self.lab7["image"] = self.img
             
@@ -117,28 +122,41 @@ class App(tk.Frame):
                 self.lab7["image"] = self.img
 
             elif 40 <= bmi:
-                result = "もう才能？"
+                result = "これはもはや才能？"
                 self.img["file"] = "BMI/img/obesity.png"
                 self.lab7["image"] = self.img
 
-            ans = f"あなたのBMIは{bmi}です。\n{result}\n適正体重は{right_weight}kgですね。"
+            self.lab6["fg"] = "black"
+            ans = f"あなたのBMIは{bmi}です。\n{result}\n適正体重は{right_weight}kgです。"
 
             # self.var1に文字列をセット
             self.var1.set(ans)
 
         except ValueError:
             # エラーメッセージ
+            # self.var1.set("半角の数字を入力してください")
+            # return("\033[31m" + "半角の数字を入力してください" + "\033[0m")
+            # self.lab6 = tk.Label(self, text="半角の数字を入力してください", fg="red")
+            # self.var1.set = tk.Label(self, text="半角の数字を入力してください", fg="red")
+            # self.var1.set(tk.Label(text="半角の数字を入力してください", fg="red"))
+            self.lab6["fg"] = "red"
             self.var1.set("半角の数字を入力してください")
-            # self.var1.set("\033[31m" + "半角の数字を入力してください" + "\033[0m")
         except ZeroDivisionError:
             # エラーメッセージ
-            self.var1.set("0で割れません")
+            # self.var1.set("正しい数値を入力してください")
+            # self.lab6 = tk.Label(self, text="正しい数値を入力してください", fg="red")
+            # self.var1.set = tk.Label(self, text="正しい数値を入力してください", fg="red")
+            # self.var1.set(tk.Label(text="正しい数値を入力してください", fg="red"))
+            self.lab6["fg"] = "red"
+            self.var1.set("正しい数値を入力してください")
 
     def clear(self):
         """リセットボタンが押されたら発動"""
         self.img["file"] = "BMI/img/measurement.png"
         self.lab7["image"] = self.img
+        self.lab6["fg"] = "black"
         self.var1.set(self.initial)
+        # self.var2.set(self.initial)
         # Entryに書いている文字の最初[0]から最後まで消すという意味
         self.ent1.delete(0, tk.END)
         self.ent2.delete(0, tk.END)
