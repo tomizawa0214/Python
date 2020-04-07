@@ -2,12 +2,13 @@
 BMI ボディマス指数計算
 """
 
-from tkinter import *
+import tkinter as tk
 
-class App(Frame):
+class App(tk.Frame):
     """tkinterのFrameクラスを継承して作成"""
 
     def __init__(self, master=None):
+        """コンストラクタ"""
         # Frameクラスのコンストラクタを呼ぶ
         super() .__init__(master, padx=10, pady=10)
         # root (masterはrootを代入) にpackして配置
@@ -16,61 +17,65 @@ class App(Frame):
         self.pack()
 
         # 最初とリセットを押した時に表示する文字列
-        self.initial = "身長と体重を入力して\nボタンを押してください"
+        self.initial = "身長と体重を入力して\nボタンを押してください\n"
         # self.lab6で使う文字列変数を設定
-        self.var1 = StringVar()
+        self.var1 = tk.StringVar()
         # 最初はself.initialを代入
         self.var1.set(self.initial)
 
         # 以降、Frameにウィジェットをgridで配置
-        self.lab1 = Label(self, text="BMI ボディマス指数計算")
+        self.lab1 = tk.Label(self, text="BMI ボディマス指数計算")
         self.lab1.grid(row=0, column=0, columnspan=4)
 
-        self.lab2 = Label(self, text="身長")
-        self.lab2.grid(raw=1, column=0)
+        self.lab2 = tk.Label(self, text="身長")
+        self.lab2.grid(row=1, column=0)
 
         # Entryウィジェットはテキスト入力 justify=RIGHTで右寄せにしている
-        self.ent1 = Entry(self, justify=RIGHT)
+        self.ent1 = tk.Entry(self, justify=tk.RIGHT)
         self.ent1.grid(row=1, column=1, columnspan=2)
-        # 最初にent1にフォーカスされる
+        # 最初にent1にフォーカスさせる
         self.ent1.focus()
         # bindメソッドでEnterボタンを押したときにもself.calcを呼び出す
         self.ent1.bind("<Return>", self.calc)
 
-        self.lab4 = Label(self, text="cm")
-        self.lab4.grid(row1, column=3)
+        self.lab4 = tk.Label(self, text="cm")
+        self.lab4.grid(row=1, column=3)
 
-        self.lab3 = Label(self, text="体重")
+        self.lab3 = tk.Label(self, text="体重")
         self.lab3.grid(row=2, column=0)
 
-        self.ent2 = Entry(self, justify=RIGHT)
+        self.ent2 = tk.Entry(self, justify=tk.RIGHT)
         self.ent2.grid(row=2, column=1, columnspan=2)
         # bindメソッドでEnterボタンを押したときにもself.calcを呼び出す
         self.ent2.bind("<Return>", self.calc)
 
-        self.lab5 = Label(self, text="kg")
+        self.lab5 = tk.Label(self, text="kg")
         self.lab5.grid(row=2, column=3)
 
-        #ボタンを押したときにself.calcメソッドを呼ぶ
-        self.btn1 = Button(self, text="計算", command=self.calc)
-        self.btn1.grid(row=3, column=2)
+        # ボタンを押したときにself.calcメソッドを呼ぶ
+        self.btn1 = tk.Button(self, text="計算", command=self.calc)
+        self.btn1.grid(row=3, column=1)
+
+        # ボタンを押したときにself.clearメソッドを呼ぶ
+        self.btn2 = tk.Button(self, text="リセット", command=self.clear)
+        self.btn2.grid(row=3, column=2)
 
         # textvariableでself.var1が変わればLabelのテキストも変わる
-        self.lab6 = Label(self, textvariable=self.var1)
-        self.lab6.grid(row4, column=0, columnspan=4)
+        self.lab6 = tk.Label(self, textvariable=self.var1)
+        self.lab6.grid(row=4, column=0, columnspan=4)
 
         # PhotoImageのオブジェクトを作成
-        self.img = PhotoImage(file="img/measurement.jpg")
+        self.img = tk.PhotoImage(file="img/measurement.jpg")
 
         # image=self.imgでPhotoImageのオブジェクトを表示させる
-        self.lab7 = Label(self, image=self.img)
+        self.lab7 = tk.Label(self, image=self.img)
         self.lab7.grid(row=5, column=0, columnspan=4)
 
     def calc(self, _=None):
         """計算ボタンが押されたら発動
         Buttonのcommandとbindから呼ばれる
         bindの場合event引数も受けなければいけないが
-        このメソッドでは使わないので_Noneにしている
+        このメソッドでは使わないので_=Noneにしている
         何が入力されるかわからないのでtry～exceptで例外処理"""
         try:
             # Entryの内容を取得
@@ -85,33 +90,33 @@ class App(Frame):
             if bmi < 18.5:
                 result = "低体重"
                 # PhotoImageのオブジェクトのfileを変えて
-                self.img["file"] = "thin.jpg"
+                self.img["file"] = "img/thin.jpg"
                 # self.lab7のimageを変える
                 self.lab7["image"] = self.img
 
             elif 18.5 <= bmi < 25:
                 result = "普通体重"
-                self.img["file"] = "normal.jpg"
+                self.img["file"] = "img/normal.jpg"
                 self.lab7["image"] = self.img
 
             elif 25 <= bmi < 30:
                 result = "肥満（1度)"
-                self.img["file"] = "obesity.jpg"
+                self.img["file"] = "img/obesity.jpg"
                 self.lab7["image"] = self.img
             
             elif 30 <= bmi < 35:
                 result = "肥満（2度）"
-                self.img["file"] = "obesity.jpg"
+                self.img["file"] = "img/obesity.jpg"
                 self.lab7["image"] = self.img
 
             elif 35 <= bmi < 40:
                 result = "肥満（3度）"
-                self.img["file"] = "obesity.jpg"
+                self.img["file"] = "img/obesity.jpg"
                 self.lab7["image"] = self.img
 
             elif 40 <= bmi:
                 result = "肥満（4度）高度肥満"
-                self.img["file"] = "obesity.jpg"
+                self.img["file"] = "img/obesity.jpg"
                 self.lab7["image"] = self.img
 
             ans = f"あなたのBMIは{bmi}です。\n{result}です。\n適正体重は{right_weight}kgです。"
@@ -128,17 +133,17 @@ class App(Frame):
 
     def clear(self):
         """リセットボタンが押されたら発動"""
-        self.img["file"] = "measurement.jpg"
+        self.img["file"] = "img/measurement.jpg"
         self.lab7["image"] = self.img
         self.var1.set(self.initial)
         # Entryに書いている文字の最初[0]から最後まで消すという意味
-        self.ent1.delete(0, END)
-        self.ent2.delete(0, END)
+        self.ent1.delete(0, tk.END)
+        self.ent2.delete(0, tk.END)
         self.ent1.focus()
 
 # Tkクラスをインスタンス化
-root = Tk()
-# ウィンドウのタイトル固定
+root = tk.Tk()
+# ウィンドウのタイトル指定
 root.title("BMI")
 # すべてのウィジェットのフォント指定
 root.option_add("*Font", "メイリオ 12")
